@@ -1,0 +1,83 @@
+body{
+    background:#451e5f;
+    color:#fff;
+    font-family:system-ui;
+}
+#inicio{
+    margin: 25px;
+    width:100%;
+    font-size: 20px;
+}
+#primeraparte{
+    margin:200px auto;
+    text-align:center;
+    width:60%;
+}
+#juego{
+    display:none;
+    justify-items: center;
+    justify-self: center;
+    justify-content: center;
+}
+#gameover{
+    display:none;
+    justify-items: center;
+    justify-self: center;
+    justify-content: center;
+}
+#resultados{
+    display:none;
+    justify-items: center;
+    justify-self: center;
+    justify-content: center;
+}
+.mensaje{
+    color:red;
+}
+.nombre{
+    font-size:24px;
+}
+ 
+ *body{
+    background:#222;
+    color:#fff;
+    font-family:system-ui;
+    font-size: large;
+}
+#inicio{
+    margin:0.5em;
+    width:100%;
+}
+#primeraparte{
+    margin:200px auto;
+    text-align:center;
+    width:60%;
+}
+.mensaje{
+    color:red;
+}
+.nombre{
+    font-size:24px;
+}
+
+button{
+    border-radius: 50px;
+    font-family: 'Varela+Round', sans-serif;
+    height: 35px;
+    margin: 10px;
+    font-size: 20px;
+
+}
+
+input{
+    border-radius: 20px;
+    height: 40px;
+    margin: 25px;
+    font-size: 20px;
+}
+
+#reinicio{
+    background-color: rgb(122, 175, 245);
+    font-size: 20px;
+    width: 100px;
+}

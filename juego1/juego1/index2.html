@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section id="primeraparte">
+        <div class="nombre">
+            Escribe tu nombre
+        </div>
+        <input type="text" id="nombre">
+        <div class="mensaje"></div>
+        <button id="facil">Facil</button>
+        <button id="normal">Normal</button>
+        <button id="dificil">Dificil</button>
+        <button id="btonPuntaje">Anterior puntaje</button>
+            <section id="puntajeAlto">
+            <div class="hi_nombreUI"></div>
+            <div class="hi_tiempoUI"></div>
+            <div class="hi_puntosUI"></div>
+            <div class="hi_nivelUI"></div>
+            </section>
+    </section>
+    <section id="juego">
+        <div id="contador"></div>
+        <div id="pregunta">
+            Adivina el numero:
+        </div>
+        <div id="mensaje2"></div>
+        <input type="text" id="numerouser">
+        <button id="jugar">
+            Jugar
+        </button>
+        <div class="intentos"></div>
+        <div class="mensaje1"></div>
+        <div class="pista"></div>
+
+    </section>
+    <section id="resultados">
+        <div class="hi_nombreUI"></div>
+        <div class="hi_tiempoUI"></div>
+        <div class="hi_puntosUI"></div>
+        <div class="hi_nivelUI"></div> 
+        <button id="reinicio">Reiniciar</button>
+    </section>
+    <section id="gameover">
+        <h1>Game Over</h1> 
+    </section>
+    <script src="js/juego2.js"></script>
+
+    <audio id="background-audio" loop>
+  <source src="031. Waterfall (UNDERTALE Soundtrack) - Toby Fox.mp3" type="audio/.mp3">
+  Tu navegador no soporta el elemento de audio.
+</audio>
+</body>
+</html>

@@ -1,27 +1,20 @@
-// ==========================================
-// 1. REFERENCIAS AL DOM
-// ==========================================
-// Pantallas y Secciones
+
 const seccionInicio = document.getElementById("primeraparte");
 const seccionJuego = document.getElementById("juego");
 const seccionGameOver = document.getElementById("gameover");
 const seccionExito = document.getElementById("resultados")
 
-// Botones principales
 const botonJugar = document.getElementById("jugar");
 const botonReiniciar = document.getElementById("reinicio");
 const btonPuntaje = document.getElementById("btonPuntaje");
 
-// Botones de dificultad
 const botonFacil = document.getElementById("facil");
 const botonNormal = document.getElementById("normal");
 const botonDificil = document.getElementById("dificil");
 
-// Entradas de usuario
 const inputNombre = document.getElementById("nombre");
 const inputNumeroUser = document.getElementById("numerouser");
 
-// Elementos de UI / Mensajes
 const txtContador = document.getElementById("contador");
 const txtMensajeInicio = document.querySelector(".mensaje");
 const txtMensaje = document.querySelector(".mensaje1");
@@ -29,25 +22,16 @@ const txtPista = document.querySelector(".pista");
 const txtIntentos = document.querySelector(".intentos");
 const txtNivel = document.getElementById("pregunta")
 
-
-// Historial y Puntajes
 const hiNombreUI = document.querySelectorAll(".hi_nombreUI");
 const hiTiempoUI = document.querySelectorAll(".hi_tiempoUI");
 const hiPuntosUI = document.querySelectorAll(".hi_puntosUI");
 const hiNivelUI = document.querySelectorAll(".hi_nivelUI");
 
-// ==========================================
-// 2. ESTADO GLOBAL DEL JUEGO
-// ==========================================
 let dificultad;
 let tiempo = 0;
 let intervalo = null;
 let numeroSuerte = 0;
 let numeroIntentos = 0;
-
-// ==========================================
-// 3. FUNCIONES DE LÓGICA Y CONTROL
-// ==========================================
 
 function ocultarP1(){
     let nombre = inputNombre.value.trim();
@@ -62,7 +46,7 @@ function ocultarP1(){
 }
 
 function iniciarTiempo() {
-    clearInterval(intervalo); // Evita acumulación de intervalos
+    clearInterval(intervalo); 
     intervalo = setInterval(() => {
         txtContador.innerText = tiempo;
         tiempo++;
@@ -80,9 +64,7 @@ function iniciarJuego() {
     numeroIntentos = 0;
     txtIntentos.innerText = "";
     ocultarP1();
-    
-    
-    // Generar número secreto
+
     switch (dificultad){
         case "facil":
             numeroSuerte = Math.floor(Math.random() * 10) + 1;
@@ -108,7 +90,7 @@ function iniciarJuego() {
 }
 
 function verificarLimiteIntentos() {
-    let limiteMaximo = 10; // Fácil
+    let limiteMaximo = 10; 
 
     if (dificultad === "normal") limiteMaximo = 7;
     if (dificultad === "dificil") limiteMaximo = 5;
@@ -134,16 +116,13 @@ function verificarIntento() {
     numeroIntentos++;
     txtIntentos.innerText = `Número de intentos: ${numeroIntentos}`;
 
-    // Validar si superó los intentos permitidos
     if (verificarLimiteIntentos()) return;
 
-    // Comprobar acierto o pista
     if (valorUser === numeroSuerte) {
         detenerTiempo();
         txtMensaje.innerText = "¡GANASTE!";
         txtPista.innerText = "";
-        
-        // Guardar partida en localStorage
+
         localStorage.setItem("nombre", nombre);
         localStorage.setItem("tiempo", tiempo);
         localStorage.setItem("intentos", numeroIntentos);
@@ -176,11 +155,6 @@ function MostrarPuntaje(){
     seccionJuego.style.display = "none";
 }
 
-// ==========================================
-// 4. EVENT LISTENERS (INTERACCIONES)
-// ==========================================
-
-// Selección de dificultad
 botonFacil.addEventListener("click", () => {
     dificultad = "facil";
     iniciarJuego();
@@ -197,17 +171,13 @@ botonDificil.addEventListener("click", () => {
     iniciarJuego();
 });
 
-// Botón principal para adivinar
 botonJugar.addEventListener("click", () => {
     verificarIntento();
 });
-
-// Mostrar último puntaje guardado
 btonPuntaje.addEventListener("click", () => {
     MostrarPuntaje();
 });
 
-// Botón de reinicio manual
 botonReiniciar.addEventListener("click", () => {
     iniciarJuego();
     seccionExito.style.display = "none"
@@ -216,15 +186,12 @@ botonReiniciar.addEventListener("click", () => {
 
 window.addEventListener('DOMContentLoaded', () => {
   const audio = document.getElementById('background-audio');
-  
-  // Intentar reproducir automáticamente
+
   audio.play().catch(error => {
     console.warn("El navegador bloqueó el autoplay. Esperando interacción del usuario...");
-    
-    // Solución elegante: reproducir al primer clic que el usuario haga en la página
+
     const playOnInteract = () => {
       audio.play();
-      // Remover el evento para que solo ocurra una vez
       document.body.removeEventListener('click', playOnInteract);
     };
     
